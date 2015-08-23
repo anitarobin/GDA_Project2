@@ -92,10 +92,25 @@ You should create one R script called run_analysis.R that does the following.
     + The first step in making the data tidy is selecting only the columns with calculations       for mean and standard deviations. From the features information that is available in         the data set, this meant selecting only columns with mean() and std() in their names.
     + Get labels for activities for replacing the activity code with corresponding label.         Use the activities text file that was in the data set.
     + Convert the activity column to a factor variable
-    + Replace column names with more meaning names using pattern matching. Descriptive            labels will indicate whether its a time/frequency signal for Acceleromater/Gyroscope.       Also replace open and close parentheses and -.
+    + Replace column names with more meaning names using pattern matching. Descriptive            labels will indicate whether its a time/frequency signal that relates to time and           frequency domain signals that generate Acceleration(Acceleromater)/Angular                  Speed(Gyroscope) readings.Also replace open and close parentheses and -.
     + The last steps is to calculate the mean of each measurement for each subject for each        activity. Accomplished using the summarise_each function.
     + This gives us our final data. Also sorted this on subject by activity for better            readabilty. This is a data set of 180 observations of 68 variables.
     + The last step is to write it to a text file for submission.
     
+'''##use this to read back the Tidy data into R and view it 
+##data <- read.table("TidyData.txt", header = TRUE) 
+##View(data)'''
+
+*********    
+#Description of the tidy data set
+
+**A data frame with 180 observations on the following 68 variables.**
+**The feature set is a subset of the orginal feature set with only measurements of mean and standard deviations for each measurement which are averaged for each activity and each subject.
 ********
+#Scripts in the repo
+
+**run_analysis.R - script to read the dataset, process according to requirements and arrive at the tidy dataset
+
+codebook.R - script to get a basic codebook with column names and descriptions which will then be added on to get the final codebook**
+
     

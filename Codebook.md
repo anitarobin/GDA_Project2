@@ -1,6 +1,25 @@
 # Codebook for Tidy Data Project
-**********
+********
+
+
 ##Descrition of the raw data
+
+The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone.
+
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
+
+For each record it is provided:
+****
+
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+- Triaxial Angular velocity from the gyroscope. 
+- A 561-feature vector with time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
+
+<em>Features are normalized and bounded within [-1,1].<em>
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
@@ -9,212 +28,251 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+
 #Description of the tidy data set
+
 A data frame with 180 observations on the following 68 variables.
-  
-    Subject|a factor with levels indicating the subject who was tested
-    Activity|a factor with levels        WALKING,WALKING_UPSTAIRS,WALKING_DOWNSTAIRS,SITTING,STANDING,LAYING
-    timeBodyAccelerometerMEANX|a numeric vector
-    timeBodyAccelerometerMEANY|a numeric vector
-    timeBodyAccelerometerMEANZ|a numeric vector
-    timeBodyAccelerometerSTDX}|a numeric vector
-    timeBodyAccelerometerSTDY|a numeric vector
-    timeBodyAccelerometerSTDZ|a numeric vector
-    timeGravityAccelerometerMEANX|a numeric vector
-    timeGravityAccelerometerMEANY|a numeric vector
-    timeGravityAccelerometerMEANZ|a numeric vector
-    timeGravityAccelerometerSTDX|a numeric vector
-    timeGravityAccelerometerSTDY|a numeric vector
-    timeGravityAccelerometerSTDZ|a numeric vector
-    timeBodyAccelerometerJerkMEANX|a numeric vector
-    timeBodyAccelerometerJerkMEANY|a numeric vector
-    timeBodyAccelerometerJerkMEANZ|a numeric vector
-    code{timeBodyAccelerometerJerkSTDX|a numeric vector
-    timeBodyAccelerometerJerkSTDY|a numeric vector
-    timeBodyAccelerometerJerkSTDZ|a numeric vector
-    timeBodyGyroscopeMEANX|a numeric vector
-    timeBodyGyroscopeMEANY|a numeric vector
-    timeBodyGyroscopeMEANZ|a numeric vector
-    timeBodyGyroscopeSTDX|a numeric vector
-    timeBodyGyroscopeSTDY|a numeric vector
-    timeBodyGyroscopeSTDZ|a numeric vector
-    timeBodyGyroscopeJerkMEANX|a numeric vector
-    timeBodyGyroscopeJerkMEANY|a numeric vector
-    timeBodyGyroscopeJerkMEANZ|a numeric vector
-    timeBodyGyroscopeJerkSTDX|a numeric vector
-    timeBodyGyroscopeJerkSTDY|a numeric vector
-    timeBodyGyroscopeJerkSTDZ|a numeric vector
-    timeBodyAccelerometerMagnitudeMEAN|a numeric vector
-    timeBodyAccelerometerMagnitudeSTD|a numeric vector
-    timeGravityAccelerometerMagnitudeMEAN|a numeric vector
-    timeGravityAccelerometerMagnitudeSTD|a numeric vector
-    timeBodyAccelerometerJerkMagnitudeMEAN|a numeric vector
-    timeBodyAccelerometerJerkMagnitudeSTD|a numeric vector
-    timeBodyGyroscopeMagnitudeMEAN|a numeric vector
-    timeBodyGyroscopeMagnitudeSTD|a numeric vector
-    timeBodyGyroscopeJerkMagnitudeMEAN|a numeric vector
-    timeBodyGyroscopeJerkMagnitudeSTD|a numeric vector
-    frequencyBodyAccelerometerMEANX|a numeric vector
-    frequencyBodyAccelerometerMEANY|a numeric vector
-    frequencyBodyAccelerometerMEANZ|a numeric vector
-    frequencyBodyAccelerometerSTDX|a numeric vector
-    frequencyBodyAccelerometerSTDY|a numeric vector
-    frequencyBodyAccelerometerSTDZ|a numeric vector
-    frequencyBodyAccelerometerJerkMEANX|a numeric vector
-    frequencyBodyAccelerometerJerkMEANY|a numeric vector
-    frequencyBodyAccelerometerJerkMEANZ|a numeric vector
-    frequencyBodyAccelerometerJerkSTDX|a numeric vector
-    frequencyBodyAccelerometerJerkSTDY|a numeric vector
-    frequencyBodyAccelerometerJerkSTDZ}a numeric vector
-    frequencyBodyGyroscopeMEANX|a numeric vector
-    frequencyBodyGyroscopeMEANY|a numeric vector
-    frequencyBodyGyroscopeMEANZ|a numeric vector
-    frequencyBodyGyroscopeSTDX|a numeric vector
-    frequencyBodyGyroscopeSTDY|a numeric vector
-    frequencyBodyGyroscopeSTDZ|a numeric vector
-    frequencyBodyAccelerometerMagnitudeMEAN|a numeric vector
-    frequencyBodyAccelerometerMagnitudeSTD|a numeric vector
-    frequencyBodyAccelerometerJerkMagnitudeMEAN|a numeric vector
-    frequencyBodyAccelerometerJerkMagnitudeSTD|a numeric vector
-    frequencyBodyGyroscopeMagnitudeMEAN|a numeric vector
-    frequencyBodyGyroscopeMagnitudeSTD|a numeric vector
-    frequencyBodyGyroscopeJerkMagnitudeMEAN|a numeric vector
-    frequencyBodyGyroscopeJerkMagnitudeSTD|a numeric vector
-  }
 
-*  Subject                            ::   Subject 
+*  Subject   ::   Subject 
 
-*  Activity                           ::   Activity 
+* Subject - an identifier for the subject who took the experiment reperesented by a id 1:30
 
-*  timeBodyAccelerometerMEANX         ::   Time Signal forBodyAccelerometer- mean valueX 
+*  Activity   ::   Activity 
 
-*  timeBodyAccelerometerMEANY         ::   Time Signal forBodyAccelerometer- mean valueY 
+* Activity - a label that identifies the activity ("WALKING", "WALKING_UPSTAIRS", , "WALKING_DOWNSTAIRS", "SITTING", "STANDING" ,"LAYING" )
 
-*  timeBodyAccelerometerMEANZ         ::   Time Signal forBodyAccelerometer- mean valueZ 
+*66 - feature vector with mean values for mean or standard devaition values for the respective time and frequency domain variables (numeric)
 
-*  timeBodyAccelerometerSTDX          ::   Time Signal forBodyAccelerometer- standard deviationX 
+#The time domain variables with descriptions :
 
-*  timeBodyAccelerometerSTDY          ::   Time Signal forBodyAccelerometer- standard deviationY 
 
-*  timeBodyAccelerometerSTDZ          ::   Time Signal forBodyAccelerometer- standard deviationZ 
+*  timeBodyAccelerationMEANX  
+  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2216  0.2712  0.2770  0.2743  0.2800  0.3015 
 
-*  timeGravityAccelerometerMEANX      ::   Time Signal forGravityAccelerometer- mean valueX 
+*  timeBodyAccelerationMEANY   $
+Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+___   _____   _____ _____   _____  ____ ______
+-0.040510 -0.020020 -0.017260 -0.017880 -0.014940 -0.001308 
+____ ____ ____ ____ ____ ___ ____ ____
+*  timeBodyAccelerationMEANZ   ::   Time Domain  Body Acceleration Signal z axis- mean value 
 
-*  timeGravityAccelerometerMEANY      ::   Time Signal forGravityAccelerometer- mean valueY 
+*  timeBodyAccelerationSTDX   ::   Time Domain  Body Acceleration Signal x axis - standard deviation 
 
-*  timeGravityAccelerometerMEANZ      ::   Time Signal forGravityAccelerometer- mean valueZ 
+*  timeBodyAccelerationSTDY   ::   Time Domain  Body Acceleration Signal y axis - standard deviation 
 
-*  timeGravityAccelerometerSTDX       ::   Time Signal forGravityAccelerometer- standard deviationX 
+*  timeBodyAccelerationSTDZ   ::   Time Domain  Body Acceleration Signal z axis- standard deviation 
 
-*  timeGravityAccelerometerSTDY       ::   Time Signal forGravityAccelerometer- standard deviationY 
+*  timeGravityAccelerationMEANX   ::   Time Domain  Gravity Acceleration x axis- mean value 
 
-*  timeGravityAccelerometerSTDZ       ::   Time Signal forGravityAccelerometer- standard deviationZ 
+*  timeGravityAccelerationMEANY   ::   Time Domain  Gravity Acceleration y axis- mean value 
 
-*  timeBodyAccelerometerJerkMEANX     ::   Time Signal forBodyAccelerometerJerk- mean valueX 
+*  timeGravityAccelerationMEANZ   ::   Time Domain  Gravity Acceleration z axis- mean value 
 
-*  timeBodyAccelerometerJerkMEANY     ::   Time Signal forBodyAccelerometerJerk- mean valueY 
-*  timeBodyAccelerometerJerkMEANZ   ::   Time Signal forBodyAccelerometerJerk- mean valueZ 
+*  timeGravityAccelerationSTDX   ::   Time Domain  Gravity Acceleration x axis - standard deviation 
 
-*  timeBodyAccelerometerJerkSTDX   ::   Time Signal forBodyAccelerometerJerk- standard deviationX 
+*  timeGravityAccelerationSTDY   ::   Time Domain  Gravity Acceleration y axis - standard deviation 
 
-*  timeBodyAccelerometerJerkSTDY   ::   Time Signal forBodyAccelerometerJerk- standard deviationY 
+*  timeGravityAccelerationSTDZ   ::   Time Domain  Gravity Acceleration z axis- standard deviation 
 
-*  timeBodyAccelerometerJerkSTDZ   ::   Time Signal forBodyAccelerometerJerk- standard deviationZ 
+*  timeBodyAccelerationJerkMEANX   ::   Time Domain Body Acceleration Jerk Signal x axis- mean value 
 
-*  timeBodyGyroscopeMEANX   ::   Time Signal forBodyGyroscope- mean valueX 
+*  timeBodyAccelerationJerkMEANY   ::   Time Domain Body Acceleration Jerk Signal y axis- mean value 
 
-*  timeBodyGyroscopeMEANY   ::   Time Signal forBodyGyroscope- mean valueY 
+*  timeBodyAccelerationJerkMEANZ   ::   Time Domain Body Acceleration Jerk Signal z axis- mean value 
 
-*  timeBodyGyroscopeMEANZ   ::   Time Signal forBodyGyroscope- mean valueZ 
+*  timeBodyAccelerationJerkSTDX   ::   Time Domain Body Acceleration Jerk Signal x axis - standard deviation 
 
-*  timeBodyGyroscopeSTDX   ::   Time Signal forBodyGyroscope- standard deviationX 
+*  timeBodyAccelerationJerkSTDY   ::   Time Domain Body Acceleration Jerk Signal y axis - standard deviation 
 
-*  timeBodyGyroscopeSTDY   ::   Time Signal forBodyGyroscope- standard deviationY 
+*  timeBodyAccelerationJerkSTDZ   ::   Time Domain Body Acceleration Jerk Signal z axis- standard deviation 
 
-*  timeBodyGyroscopeSTDZ   ::   Time Signal forBodyGyroscope- standard deviationZ 
+*  timeBodyAngularSpeedMEANX   ::   Time Domain  Body Angular Speed Signal x axis- mean value 
 
-*  timeBodyGyroscopeJerkMEANX   ::   Time Signal forBodyGyroscopeJerk- mean valueX 
+*  timeBodyAngularSpeedMEANY   ::   Time Domain  Body Angular Speed Signal y axis- mean value 
 
-*  timeBodyGyroscopeJerkMEANY   ::   Time Signal forBodyGyroscopeJerk- mean valueY 
+*  timeBodyAngularSpeedMEANZ   ::   Time Domain  Body Angular Speed Signal z axis- mean value 
 
-*  timeBodyGyroscopeJerkMEANZ   ::   Time Signal forBodyGyroscopeJerk- mean valueZ 
+*  timeBodyAngularSpeedSTDX   ::   Time Domain  Body Angular Speed Signal x axis - standard deviation 
 
-*  timeBodyGyroscopeJerkSTDX   ::   Time Signal forBodyGyroscopeJerk- standard deviationX 
+*  timeBodyAngularSpeedSTDY   ::   Time Domain  Body Angular Speed Signal y axis - standard deviation 
 
-*  timeBodyGyroscopeJerkSTDY   ::   Time Signal forBodyGyroscopeJerk- standard deviationY 
+*  timeBodyAngularSpeedSTDZ   ::   Time Domain  Body Angular Speed Signal z axis- standard deviation 
 
-*  timeBodyGyroscopeJerkSTDZ   ::   Time Signal forBodyGyroscopeJerk- standard deviationZ 
+*  timeBodyAngularSpeedJerkMEANX   ::   Time Domain  Body Angular Speed SignalJerk x axis- mean value 
 
-*  timeBodyAccelerometerMagnitudeMEAN   ::   Time Signal forBodyAccelerometerMagnitude- mean value 
+*  timeBodyAngularSpeedJerkMEANY   ::   Time Domain  Body Angular Speed SignalJerk y axis- mean value 
 
-*  timeBodyAccelerometerMagnitudeSTD   ::   Time Signal forBodyAccelerometerMagnitude- standard deviation 
+*  timeBodyAngularSpeedJerkMEANZ   ::   Time Domain  Body Angular Speed SignalJerk z axis- mean value 
 
-*  timeGravityAccelerometerMagnitudeMEAN   ::   Time Signal forGravityAccelerometerMagnitude- mean value 
+*  timeBodyAngularSpeedJerkSTDX   ::   Time Domain  Body Angular Speed SignalJerk x axis - standard deviation 
 
-*  timeGravityAccelerometerMagnitudeSTD   ::   Time Signal forGravityAccelerometerMagnitude- standard deviation 
+*  timeBodyAngularSpeedJerkSTDY   ::   Time Domain  Body Angular Speed SignalJerk y axis - standard deviation 
 
-*  timeBodyAccelerometerJerkMagnitudeMEAN   ::   Time Signal forBodyAccelerometerJerkMagnitude- mean value 
+*  timeBodyAngularSpeedJerkSTDZ   ::   Time Domain  Body Angular Speed SignalJerk z axis- standard deviation 
 
-*  timeBodyAccelerometerJerkMagnitudeSTD   ::   Time Signal forBodyAccelerometerJerkMagnitude- standard deviation 
+*  timeBodyAccelerationMagnitudeMEAN   ::   Time Domain Body Acceleration Signal Magnitude- mean value 
 
-*  timeBodyGyroscopeMagnitudeMEAN   ::   Time Signal forBodyGyroscopeMagnitude- mean value 
+*  timeBodyAccelerationMagnitudeSTD   ::   Time Domain Body Acceleration Signal Magnitude- standard deviation 
 
-*  timeBodyGyroscopeMagnitudeSTD   ::   Time Signal forBodyGyroscopeMagnitude- standard deviation 
+*  timeGravityAccelerationMagnitudeMEAN   ::   Time Domain Gravity Acceleration Signal Magnitude- mean value 
 
-*  timeBodyGyroscopeJerkMagnitudeMEAN   ::   Time Signal forBodyGyroscopeJerkMagnitude- mean value 
+*  timeGravityAccelerationMagnitudeSTD   ::   Time Domain Gravity Acceleration Signal Magnitude- standard deviation 
 
-*  timeBodyGyroscopeJerkMagnitudeSTD   ::   Time Signal forBodyGyroscopeJerkMagnitude- standard deviation 
+*  timeBodyAccelerationJerkMagnitudeMEAN   ::   Time Domain Body Acceleration Jerk SignalMagnitude- mean value 
 
-*  frequencyBodyAccelerometerMEANX   ::   Frequency signal forBodyAccelerometer- mean valueX 
+*  timeBodyAccelerationJerkMagnitudeSTD   ::   Time Domain Body Acceleration Jerk SignalMagnitude- standard deviation 
 
-*  frequencyBodyAccelerometerMEANY   ::   Frequency signal forBodyAccelerometer- mean valueY 
+*  timeBodyAngularSpeedMagnitudeMEAN   ::   Time Domain  Body Angular Speed SignalMagnitude- mean value 
 
-*  frequencyBodyAccelerometerMEANZ   ::   Frequency signal forBodyAccelerometer- mean valueZ 
+*  timeBodyAngularSpeedMagnitudeSTD   ::   Time Domain  Body Angular Speed SignalMagnitude- standard deviation 
 
-*  frequencyBodyAccelerometerSTDX   ::   Frequency signal forBodyAccelerometer- standard deviationX 
+*  timeBodyAngularSpeedJerkMagnitudeMEAN   ::   Time Domain  Body Angular Speed Signal Jerk Signal Magnitude - mean value 
 
-*  frequencyBodyAccelerometerSTDY   ::   Frequency signal forBodyAccelerometer- standard deviationY 
+*  timeBodyAngularSpeedJerkMagnitudeSTD   ::   Time Domain  Body Angular Speed Signal Jerk Signal Magnitude - standard deviation 
 
-*  frequencyBodyAccelerometerSTDZ   ::   Frequency signal forBodyAccelerometer- standard deviationZ 
 
-*  frequencyBodyAccelerometerJerkMEANX   ::   Frequency signal forBodyAccelerometerJerk- mean valueX 
+****
+##The frequency domain variables with descriptions :
 
-*  frequencyBodyAccelerometerJerkMEANY   ::   Frequency signal forBodyAccelerometerJerk- mean valueY 
+*  frequencyBodyAccelerationMEANX   ::   Frequency Domain  Body Acceleration Signal x axis- mean value 
 
-*  frequencyBodyAccelerometerJerkMEANZ   ::   Frequency signal forBodyAccelerometerJerk- mean valueZ 
+*  frequencyBodyAccelerationMEANY   ::   Frequency Domain  Body Acceleration Signal y axis- mean value 
 
-*  frequencyBodyAccelerometerJerkSTDX   ::   Frequency signal forBodyAccelerometerJerk- standard deviationX 
+*  frequencyBodyAccelerationMEANZ   ::   Frequency Domain  Body Acceleration Signal z axis- mean value 
 
-*  frequencyBodyAccelerometerJerkSTDY   ::   Frequency signal forBodyAccelerometerJerk- standard deviationY 
+*  frequencyBodyAccelerationSTDX   ::   Frequency Domain  Body Acceleration Signal x axis - standard deviation 
 
-*  frequencyBodyAccelerometerJerkSTDZ   ::   Frequency signal forBodyAccelerometerJerk- standard deviationZ 
+*  frequencyBodyAccelerationSTDY   ::   Frequency Domain  Body Acceleration Signal y axis - standard deviation 
 
-*  frequencyBodyGyroscopeMEANX           ::   Frequency signal forBodyGyroscope- mean valueX 
+*  frequencyBodyAccelerationSTDZ   ::   Frequency Domain  Body Acceleration Signal z axis- standard deviation 
 
-*  frequencyBodyGyroscopeMEANY           ::   Frequency signal forBodyGyroscope- mean valueY 
+*  frequencyBodyAccelerationJerkMEANX   ::   Frequency Domain Body Acceleration Jerk Signal x axis- mean value 
 
-*  frequencyBodyGyroscopeMEANZ           ::   Frequency signal forBodyGyroscope- mean valueZ 
+*  frequencyBodyAccelerationJerkMEANY   ::   Frequency Domain Body Acceleration Jerk Signal y axis- mean value 
 
-*  frequencyBodyGyroscopeSTDX             ::   Frequency signal forBodyGyroscope- standard deviationX 
+*  frequencyBodyAccelerationJerkMEANZ   ::   Frequency Domain Body Acceleration Jerk Signal z axis- mean value 
 
-*  frequencyBodyGyroscopeSTDY              ::   Frequency signal forBodyGyroscope- standard deviationY 
+*  frequencyBodyAccelerationJerkSTDX   ::   Frequency Domain Body Acceleration Jerk Signal x axis - standard deviation 
 
-*  frequencyBodyGyroscopeSTDZ               ::   Frequency signal forBodyGyroscope- standard deviationZ 
+*  frequencyBodyAccelerationJerkSTDY   ::   Frequency Domain Body Acceleration Jerk Signal y axis - standard deviation 
 
-*  frequencyBodyAccelerometerMagnitudeMEAN  ::   Frequency signal forBodyAccelerometerMagnitude- mean value 
+*  frequencyBodyAccelerationJerkSTDZ   ::   Frequency Domain Body Acceleration Jerk Signal z axis- standard deviation 
 
-*  frequencyBodyAccelerometerMagnitudeSTD   ::   Frequency signal forBodyAccelerometerMagnitude- standard deviation 
+*  frequencyBodyAngularSpeedMEANX   ::   Frequency Domain  Body Angular Speed Signal x axis- mean value 
 
-*  frequencyBodyAccelerometerJerkMagnitudeMEAN ::   Frequency signal forBodyAccelerometerJerkMagnitude- mean value 
+*  frequencyBodyAngularSpeedMEANY   ::   Frequency Domain  Body Angular Speed Signal y axis- mean value 
 
-*  frequencyBodyAccelerometerJerkMagnitudeSTD   ::   Frequency signal forBodyAccelerometerJerkMagnitude- standard deviation 
+*  frequencyBodyAngularSpeedMEANZ   ::   Frequency Domain  Body Angular Speed Signal z axis- mean value 
 
-*  frequencyBodyGyroscopeMagnitudeMEAN          ::   Frequency signal forBodyGyroscopeMagnitude- mean value 
+*  frequencyBodyAngularSpeedSTDX   ::   Frequency Domain  Body Angular Speed Signal x axis - standard deviation 
 
-*  frequencyBodyGyroscopeMagnitudeSTD           ::   Frequency signal forBodyGyroscopeMagnitude- standard deviation 
+*  frequencyBodyAngularSpeedSTDY   ::   Frequency Domain  Body Angular Speed Signal y axis - standard deviation 
 
-*  frequencyBodyGyroscopeJerkMagnitudeMEAN      ::   Frequency signal forBodyGyroscopeJerkMagnitude- mean value 
+*  frequencyBodyAngularSpeedSTDZ   ::   Frequency Domain  Body Angular Speed Signal z axis- standard deviation 
 
-*  frequencyBodyGyroscopeJerkMagnitudeSTD       ::   Frequency signal forBodyGyroscopeJerkMagnitude- standard deviation 
+*  frequencyBodyAccelerationMagnitudeMEAN   ::   Frequency Domain Body Acceleration Signal Magnitude- mean value 
 
+*  frequencyBodyAccelerationMagnitudeSTD   ::   Frequency Domain Body Acceleration Signal Magnitude- standard deviation 
+
+*  frequencyBodyAccelerationJerkMagnitudeMEAN   ::   Frequency Domain Body Acceleration Jerk SignalMagnitude- mean value 
+
+*  frequencyBodyAccelerationJerkMagnitudeSTD   ::   Frequency Domain Body Acceleration Jerk SignalMagnitude- standard deviation 
+
+*  frequencyBodyAngularSpeedMagnitudeMEAN   ::   Frequency Domain  Body Angular Speed SignalMagnitude- mean value 
+
+*  frequencyBodyAngularSpeedMagnitudeSTD   ::   Frequency Domain  Body Angular Speed SignalMagnitude- standard deviation 
+
+*  frequencyBodyAngularSpeedJerkMagnitudeMEAN   ::   Frequency Domain  Body Angular Speed Signal Jerk Signal Magnitude - mean value 
+
+*  frequencyBodyAngularSpeedJerkMagnitudeSTD   ::   Frequency Domain  Body Angular Speed Signal Jerk Signal Magnitude - standard deviation 
+
+******
+# Summary of feature vector variables
+
+*  timeBodyAccelerationMEANX   ::   
+  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2216  0.2712  0.2770  0.2743  0.2800  0.3015 
+
+*  timeBodyAccelerationMEANY   $
+ Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+ ____ _____   ______ ______ ______ ______
+-0.040510 -0.020020 -0.017260 -0.017880 -0.014940 -0.001308
+________ ______ ______ ______ ______ _______ 
+*  timeBodyAccelerationMEANZ   ::   Time Domain  Body Acceleration Signal z axis- mean value 
+
+*  timeBodyAccelerationSTDX   ::   Time Domain  Body Acceleration Signal x axis - standard deviation 
+
+*  timeBodyAccelerationSTDY   ::   Time Domain  Body Acceleration Signal y axis - standard deviation 
+
+*  timeBodyAccelerationSTDZ   ::   Time Domain  Body Acceleration Signal z axis- standard deviation 
+
+*  timeGravityAccelerationMEANX   ::   Time Domain  Gravity Acceleration x axis- mean value 
+
+*  timeGravityAccelerationMEANY   ::   Time Domain  Gravity Acceleration y axis- mean value 
+
+*  timeGravityAccelerationMEANZ   ::   Time Domain  Gravity Acceleration z axis- mean value 
+
+*  timeGravityAccelerationSTDX   ::   Time Domain  Gravity Acceleration x axis - standard deviation 
+
+*  timeGravityAccelerationSTDY   ::   Time Domain  Gravity Acceleration y axis - standard deviation 
+
+*  timeGravityAccelerationSTDZ   ::   Time Domain  Gravity Acceleration z axis- standard deviation 
+
+*  timeBodyAccelerationJerkMEANX   ::   Time Domain Body Acceleration Jerk Signal x axis- mean value 
+
+*  timeBodyAccelerationJerkMEANY   ::   Time Domain Body Acceleration Jerk Signal y axis- mean value 
+
+*  timeBodyAccelerationJerkMEANZ   ::   Time Domain Body Acceleration Jerk Signal z axis- mean value 
+
+*  timeBodyAccelerationJerkSTDX   ::   Time Domain Body Acceleration Jerk Signal x axis - standard deviation 
+
+*  timeBodyAccelerationJerkSTDY   ::   Time Domain Body Acceleration Jerk Signal y axis - standard deviation 
+
+*  timeBodyAccelerationJerkSTDZ   ::   Time Domain Body Acceleration Jerk Signal z axis- standard deviation 
+
+*  timeBodyAngularSpeedMEANX   ::   Time Domain  Body Angular Speed Signal x axis- mean value 
+
+*  timeBodyAngularSpeedMEANY   ::   Time Domain  Body Angular Speed Signal y axis- mean value 
+
+*  timeBodyAngularSpeedMEANZ   ::   Time Domain  Body Angular Speed Signal z axis- mean value 
+
+*  timeBodyAngularSpeedSTDX   ::   Time Domain  Body Angular Speed Signal x axis - standard deviation 
+
+*  timeBodyAngularSpeedSTDY   ::   Time Domain  Body Angular Speed Signal y axis - standard deviation 
+
+*  timeBodyAngularSpeedSTDZ   ::   Time Domain  Body Angular Speed Signal z axis- standard deviation 
+
+*  timeBodyAngularSpeedJerkMEANX   ::   Time Domain  Body Angular Speed SignalJerk x axis- mean value 
+
+*  timeBodyAngularSpeedJerkMEANY   ::   Time Domain  Body Angular Speed SignalJerk y axis- mean value 
+
+*  timeBodyAngularSpeedJerkMEANZ   ::   Time Domain  Body Angular Speed SignalJerk z axis- mean value 
+
+*  timeBodyAngularSpeedJerkSTDX   ::   Time Domain  Body Angular Speed SignalJerk x axis - standard deviation 
+
+*  timeBodyAngularSpeedJerkSTDY   ::   Time Domain  Body Angular Speed SignalJerk y axis - standard deviation 
+
+*  timeBodyAngularSpeedJerkSTDZ   ::   Time Domain  Body Angular Speed SignalJerk z axis- standard deviation 
+
+*  timeBodyAccelerationMagnitudeMEAN   ::   Time Domain Body Acceleration Signal Magnitude- mean value 
+
+*  timeBodyAccelerationMagnitudeSTD   ::   Time Domain Body Acceleration Signal Magnitude- standard deviation 
+
+*  timeGravityAccelerationMagnitudeMEAN   ::   Time Domain Gravity Acceleration Signal Magnitude- mean value 
+
+*  timeGravityAccelerationMagnitudeSTD   ::   Time Domain Gravity Acceleration Signal Magnitude- standard deviation 
+
+*  timeBodyAccelerationJerkMagnitudeMEAN   ::   Time Domain Body Acceleration Jerk SignalMagnitude- mean value 
+
+*  timeBodyAccelerationJerkMagnitudeSTD   ::   Time Domain Body Acceleration Jerk SignalMagnitude- standard deviation 
+
+*  timeBodyAngularSpeedMagnitudeMEAN   ::   Time Domain  Body Angular Speed SignalMagnitude- mean value 
+
+*  timeBodyAngularSpeedMagnitudeSTD   ::   Time Domain  Body Angular Speed SignalMagnitude- standard deviation 
+
+*  timeBodyAngularSpeedJerkMagnitudeMEAN   ::   Time Domain  Body Angular Speed Signal Jerk Signal Magnitude - mean value 
+
+*  timeBodyAngularSpeedJerkMagnitudeSTD   ::   Time Domain  Body Angular Speed Signal Jerk Signal Magnitude - standard deviation 
 

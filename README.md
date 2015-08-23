@@ -87,13 +87,14 @@ You should create one R script called run_analysis.R that does the following.
       that includes the information about activity and subject for each observation row
     + Merge the tables from the previous two steps to have a single table that has all
       the training and test data
+    + The merged data set contains 10299 observations of 68 variables
     + Read the features files and use it to generate column names for the merged table
     + The first step in making the data tidy is selecting only the columns with calculations       for mean and standard deviations. From the features information that is available in         the data set, this meant selecting only columns with mean() and std() in their names.
-    + Get labels for activities for replacing the activity code with corresponding label. Use       the activities text file that was in the data set.
+    + Get labels for activities for replacing the activity code with corresponding label.         Use the activities text file that was in the data set.
     + Convert the activity column to a factor variable
-    + Replace column names with more meaning names using pattern matching. Descriptive labels       will indicate whether its a time/frequency signal for Acceleromater/Gyroscope. 
+    + Replace column names with more meaning names using pattern matching. Descriptive            labels will indicate whether its a time/frequency signal for Acceleromater/Gyroscope.       Also replace open and close parentheses and -.
     + The last steps is to calculate the mean of each measurement for each subject for each        activity. Accomplished using the summarise_each function.
-    + This gives us our tidy data. Also sorted this on subject by activity for better              readabilty.
+    + This gives us our final data. Also sorted this on subject by activity for better            readabilty. This is a data set of 180 observations of 68 variables.
     + The last step is to write it to a text file for submission.
     
 ********
